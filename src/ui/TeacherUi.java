@@ -3,6 +3,8 @@ package ui;
 import entity.Attendance;
 import entity.User;
 
+import java.time.LocalDate;
+
 import static db.DataSource.*;
 
 public class TeacherUi {
@@ -43,6 +45,16 @@ public class TeacherUi {
     }
 
     private void StudentAttendance() {
-        System.out.println("enter the");
+        System.out.println("enter the year");
+        int year = scanner.nextInt();
+        if (year<2025){
+            System.out.println("do not enter past year!");
+            return;
+        }
+        System.out.println("enter the month");
+        int month = scanner.nextInt();
+        if (1>month||12<month||month>Integer.parseInt(String.valueOf(LocalDate.now().getMonth()))){
+            System.out.println("do not enter ");
+        }
     }
 }
