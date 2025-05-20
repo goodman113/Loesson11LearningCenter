@@ -3,20 +3,24 @@ package entity;
 import entity.enums.Role;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class User {
-    private String id;
+    private final String id = UUID.randomUUID().toString();
     private String fullName;
     private String email;
     private String password;
     private Role role;
 
-    public String getId() {
-        return id;
+    public User(String fullName, String email, String password, Role role) {
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getFullName() {
