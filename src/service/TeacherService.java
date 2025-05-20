@@ -9,13 +9,15 @@ import static db.DataSource.*;
 public class TeacherService {
 
 
-    public void addStudentToGroup(User user,Group group){
-        if (user==null||group==null)return;
+    public boolean addStudentToGroup(User user,Group group){
+        if (user==null||group==null)return false;
         group.getGroupStudents().add(user);
+        return true;
     }
-    public void deleteStudentFromGroup(User user,Group group){
-        if (user==null||group==null)return;
+    public boolean deleteStudentFromGroup(User user,Group group){
+        if (user==null||group==null)return false;
         group.getGroupStudents().remove(user);
+        return true;
     }
      public Optional<Group> findGroupById(User user, String id){
          for (Group group : groups) {
