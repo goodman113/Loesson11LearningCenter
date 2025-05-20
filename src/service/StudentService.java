@@ -1,5 +1,7 @@
 package service;
 
+import entity.Group;
+import entity.Student;
 import entity.User;
 
 import static db.DataSource.*;
@@ -27,11 +29,22 @@ public static void service(){
 
 }
 
-    private static void myAttendance() {
+    public static void myAttendance() {
+//        Attendance attendance = new Attendance();
+//        System.out.println(attendance.getAttendedStudents());
 
+        for (Group group : groups) {
+            if (group.getGroupStudents().equals(currentUser)){
+                System.out.println(group);
+            }
+        }
     }
 
-    private static void myMarks() {
+    public static void myMarks() {
+        Student student = new Student();
+        for (int i = 0; i < students.size(); i++) {
+            System.out.println(student.getMarks());
+        }
     }
 
     public static void showStudents(){
