@@ -1,21 +1,11 @@
 package entity;
 
-public class Student {
-    private User user;
+public class Student extends User{
     private StringBuilder marks = new StringBuilder();
     private String groupId;
 
-    public Student(User user, String groupId) {
-        this.user = user;
+    public Student(String groupId) {
         this.groupId = groupId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public StringBuilder getMarks() {
@@ -37,7 +27,6 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "user=" + user +
                 ", marks=" + marks +
                 ", groupId='" + groupId + '\'' +
                 '}';

@@ -1,7 +1,7 @@
 package ui;
 
 import entity.Attendance;
-import entity.User;
+import entity.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +12,7 @@ public class TeacherUi {
 
     public void teacherUi (User user) {
             while(true){
+
                 // AKBAR 4 show attendance VA 5 mark
                 System.out.println("""
                     0 exit
@@ -54,7 +55,37 @@ public class TeacherUi {
         System.out.println("enter the month");
         int month = scanner.nextInt();
         if (1>month||12<month||month>Integer.parseInt(String.valueOf(LocalDate.now().getMonth()))){
-            System.out.println("do not enter ");
+            System.out.println("wrong month entered");
+            return;
         }
+        System.out.println("enter day");
+        int day = checkDay(month);
+        LocalDate attendanceDay = LocalDate.of(2025, month, day);
+        showStudents();
+    }
+
+    private void showStudents() {
+        for(Student student : students){
+            if (student.getGroupId())
+        }
+    }
+
+
+    private static int checkDay(int month) {
+        int maxDay = switch (month) {
+            case 4, 6, 9, 11 -> 30;
+            case 2 -> 28;
+            default -> 31;
+        };
+
+        System.out.print("Enter a day (1-" + maxDay + "): ");
+        int day = scanner.nextInt();
+
+
+        if (day < 1 || day > maxDay) {
+            System.out.println("Invalid day. Please try again.");
+            return checkDay(month);
+        }
+        return day;
     }
 }

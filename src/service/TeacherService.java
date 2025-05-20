@@ -1,5 +1,6 @@
 package service;
 import entity.Group;
+import entity.Student;
 import entity.User;
 
 import java.util.Optional;
@@ -29,7 +30,7 @@ public class TeacherService {
      }
 
      public User findStudentById(String id){
-         for (User student : students) {
+         for (Student student : students) {
              if (student.getId().equals(id)){
                  return student;
              }
