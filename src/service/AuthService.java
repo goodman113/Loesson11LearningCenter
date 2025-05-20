@@ -1,9 +1,8 @@
 package service;
 import entity.User;
 import entity.enums.Role;
-
+import  ui.*;
 import static db.DataSource.*;
-import static db.Storage.users;
 
 public class AuthService {
     public void service(){
@@ -11,16 +10,18 @@ public class AuthService {
         String email=strScanner.nextLine();
         System.out.println("enter password");
         String password=strScanner.nextLine();
-        for (User user : users) {
+        for (User user : students) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 if (user.getRole().equals(Role.ADMIN)) {
                     new AdminService().service();
                 }
                 if (user.getRole().equals(Role.STUDENT)) {
-                    new StudentService().service();
+                    StudentUi studentUi = new StudentUi();
+                    studentUi.studentUi(user);
                 }
                 if(user.getRole().equals(Role.TEACHER)){
-                    new TeacherService().service();
+                    TeacherUi teacherUi = new TeacherUi();
+                    teacherUi.teacherUi(user);
                 }
             }
         }
