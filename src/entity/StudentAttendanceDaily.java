@@ -5,7 +5,7 @@ import entity.enums.AttendanceStatus;
 import java.util.UUID;
 
 public class StudentAttendanceDaily {
-    private  String studentId = UUID.randomUUID().toString();
+    private String studentId = UUID.randomUUID().toString();
     private String studentName;
     private AttendanceStatus status;
 

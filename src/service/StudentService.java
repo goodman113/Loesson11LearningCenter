@@ -5,7 +5,6 @@ import entity.Student;
 import entity.User;
 
 import static db.DataSource.*;
-import static db.DataSource.students;
 
 public class StudentService {
 public static void service(){
@@ -52,8 +51,8 @@ public static void service(){
             System.out.println(student);
         }
     }
-    public static User findStudentById(String id){
-        for (User student : students) {
+    public static Student findStudentById(String id){
+        for (Student student : students) {
             if (student.getId().equals(id))return student;
         }
        return null;
