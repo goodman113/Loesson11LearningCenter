@@ -4,6 +4,7 @@ import entity.User;
 import entity.enums.Role;
 
 import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
