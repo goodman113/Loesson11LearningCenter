@@ -59,4 +59,15 @@ public class Group {
     public void setGroupStudents(Set<User> groupStudents) {
         this.students = groupStudents;
     }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", maxLessonInMonth=" + maxLessonInMonth +
+                ", teacher=" + teacher +
+                ", groupStudents=" + groupStudents +
+                '}';
+    }
 }

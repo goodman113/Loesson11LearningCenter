@@ -1,6 +1,11 @@
 package ui;
 
 import entity.Attendance;
+import entity.Group;
+import entity.User;
+import service.TeacherService;
+
+import java.util.List;
 import entity.*;
 
 import java.time.LocalDate;
@@ -8,9 +13,12 @@ import java.time.LocalDate;
 import static db.DataSource.*;
 
 public class TeacherUi {
+    public static User currentUser;
+    static TeacherService teacherService = new TeacherService();
 
 
     public void teacherUi (User user) {
+        currentUser = user;
             while(true){
 
                 // AKBAR 4 show attendance VA 5 mark
@@ -27,6 +35,9 @@ public class TeacherUi {
                         return;
                     }
                     case "1"->{
+                        teacherService.showGroups(currentUser.getId());
+                        System.out.println("enter group id:");
+                        String groupId = strScanner.nextLine();
 
                     }
                     case "2"->{
