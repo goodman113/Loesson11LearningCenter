@@ -1,7 +1,9 @@
 package ui;
 
+import entity.User;
+
 public class AdminUi {
-    public void adminUi(){
+    public static void adminUi(User user){
 //        todo this is for admin page
     }
 }

@@ -1,5 +1,6 @@
 package service;
-import entity.Group;
+import
+        entity.Group;
 import entity.User;
 
 import java.util.Optional;

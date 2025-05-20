@@ -8,7 +8,7 @@ import static db.DataSource.*;
 public class TeacherUi {
 
 
-    public void teacherUi (User user) {
+    public static void teacherUi (User user) {
             while(true){
                 // AKBAR 4 show attendance VA 5 mark
                 System.out.println("""
