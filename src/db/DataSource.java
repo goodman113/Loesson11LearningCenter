@@ -20,7 +20,7 @@ public class DataSource {
     public static Set<User> teachers = new HashSet<>();
     public static Set<Group> groups = new HashSet<>();
 
-    Set<User> users = new HashSet<>();
+
     static {
         User admin = new User("admin","admin","admin", Role.ADMIN);
         User teacher1 = new User("teacher1","teacher1","teacher1", Role.TEACHER);

@@ -9,7 +9,8 @@ public class TeacherUi {
 
 
     public void teacherUi (User user) {
-   while(true){
+            while(true){
+                // AKBAR 4 show attendance VA 5 mark
                 System.out.println("""
                     0 exit
                     1 add student
