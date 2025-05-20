@@ -9,8 +9,15 @@ import static db.DataSource.*;
 public class TeacherService {
 
 
-    public void addStudentToGroup(User user){
-
+    public boolean addStudentToGroup(User user,Group group){
+        if (user==null||group==null)return false;
+        group.getGroupStudents().add(user);
+        return true;
+    }
+    public boolean deleteStudentFromGroup(User user,Group group){
+        if (user==null||group==null)return false;
+        group.getGroupStudents().remove(user);
+        return true;
     }
      public Optional<Group> findGroupById(User user, String id){
          for (Group group : groups) {
@@ -21,6 +28,14 @@ public class TeacherService {
          return Optional.empty();
      }
 
+     public User findStudentById(String id){
+         for (User student : students) {
+             if (student.getId().equals(id)){
+                 return student;
+             }
+         }
+         return null;
+     }
 
 
 }

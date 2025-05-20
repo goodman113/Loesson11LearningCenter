@@ -9,16 +9,18 @@ public class StudentAttendanceDaily {
     private String studentName;
     private AttendanceStatus status;
 
-    public StudentAttendanceDaily() {
-    }
-
-    public StudentAttendanceDaily(String studentName, AttendanceStatus status) {
+    public StudentAttendanceDaily(String studentId, String studentName, AttendanceStatus status) {
+        this.studentId = studentId;
         this.studentName = studentName;
         this.status = status;
     }
 
     public String getStudentId() {
         return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getStudentName() {
@@ -36,7 +38,6 @@ public class StudentAttendanceDaily {
     public void setStatus(AttendanceStatus status) {
         this.status = status;
     }
-
     @Override
     public String toString() {
         return "StudentAttendanceDaily{" +

@@ -13,14 +13,12 @@ public class Attendance {
 
     public Attendance() {
     }
-
     public Attendance(LocalDate date, String groupId, User teacher, List<StudentAttendanceDaily> attendedStudents) {
         this.date = date;
         this.groupId = groupId;
         this.teacher = teacher;
         this.attendedStudents = attendedStudents;
     }
-
     public String getId() {
         return id;
     }
