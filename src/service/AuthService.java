@@ -3,7 +3,7 @@ import entity.User;
 import entity.enums.Role;
 
 import static db.DataSource.*;
-import static db.Storage.users;
+import static db.DataSource.*;
 
 public class AuthService {
     public void service(){
