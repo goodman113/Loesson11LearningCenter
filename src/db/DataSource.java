@@ -11,7 +11,6 @@ import java.util.Set;
 public class DataSource {
     public static Scanner scanner  =new Scanner(System.in);
     public static Scanner strScanner  =new Scanner(System.in);
-
     public static User  currentUser = null;
     Set<User> users = new HashSet<>();
     static {
