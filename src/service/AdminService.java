@@ -1,6 +1,7 @@
 package service;
 
 import entity.Group;
+import entity.Student;
 import entity.User;
 import entity.enums.Role;
 
@@ -19,8 +20,8 @@ public class AdminService {
                     0 exit
                     1 add teacher
                     2 add student
-                    3 edit techer/student
-                    4 delete techer/student
+                    3 edit teacher/student
+                    4 delete teacher/student
                     5 create group
                     6 edit group
                     """);
@@ -102,11 +103,151 @@ public class AdminService {
                     }
                     groups.add(group);
                 }
+                case 2 -> {
+                    addStudent();
+                }
+                case 4 -> {
+                    while (true){
+                        System.out.println("""
+                                0 exit
+                                1 teacher
+                                2 student
+                                """);
+                        switch (scanner.nextInt()){
+                            case 0 -> {
+                                return;
+                            }
+                            case 1 -> {
+                                deleteTeacher();
+                            }
+                            case 2 -> {
+                                deleteStudent();
+                            }
+                        }
+                    }
+                }
 
-
+                case 6 -> {
+                    editGroup();
+                }
             }
+        }
+    }
 
+    private void addStudent() {
+        User user = new User();
+        System.out.println("Full name: ");
+        user.setFullName(strScanner.nextLine());
+        System.out.println("Email: ");
+        user.setEmail(strScanner.nextLine());
+        System.out.println("Password: ");
+        user.setPassword(strScanner.nextLine());
+        user.setRole(STUDENT);
+        students.add((Student) user);
+        users.add(user);
+    }
 
+    private void deleteStudent() {
+        if (students.isEmpty()) {
+            System.out.println("No users");
+            return;
+        }
+        for (User user : students) {
+            System.out.println(user);
+        }
+        System.out.println("ID: ");
+        String id = strScanner.nextLine();
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                users.remove(user);
+            }
+        }
+        for (User user : students) {
+            if (user.getId().equals(id)) {
+                students.remove(user);
+                return;
+            }
+        }
+        System.out.println("ID not found");
+    }
+
+    private void deleteTeacher() {
+        if (teachers.isEmpty()) {
+            System.out.println("No users");
+            return;
+        }
+        for (User user : teachers) {
+            System.out.println(user);
+        }
+        System.out.println("ID: ");
+        String id = strScanner.nextLine();
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                users.remove(user);
+            }
+        }
+        for (User user : teachers) {
+            if (user.getId().equals(id)) {
+                teachers.remove(user);
+                return;
+            }
+        }
+        System.out.println("ID not found");
+    }
+
+    private void editGroup() {
+        if (groups.isEmpty()){
+            System.out.println("Groups not found");
+            return;
+        }
+        for (Group group : groups) {
+            System.out.println(group);
+        }
+        Group gr = new Group();
+        System.out.println("Group ID: ");
+        String id = strScanner.nextLine();
+        for (Group group : groups) {
+            if (group.getId().equals(id)){
+                gr = group;
+                editGroupFields(gr);
+                return;
+            }
+        }
+    }
+
+    private void editGroupFields(Group group) {
+        while (true) {
+            System.out.println("""
+                    0 exit
+                    1 name
+                    2 maxLessonsInMonth
+                    3 teacher
+                    """);
+            switch (scanner.nextInt()){
+                case 0 -> {
+                    return;
+                }
+                case 1 -> {
+                    group.setName(strScanner.nextLine());
+                }
+                case 2 -> {
+                    group.setMaxLessonInMonth(scanner.nextInt());
+                }
+                case 3 -> {
+                    for (User teacher : teachers) {
+                        System.out.println(teacher);
+                    }
+                    System.out.println("teacher ID");
+                    String id = strScanner.nextLine();
+                    for (User teacher : teachers) {
+                        if (teacher.getId().equals(id)){
+                            group.setTeacher(teacher);
+                            return;
+                        }
+                    }
+                    System.out.println("ID not found");
+                }
+            }
         }
     }
 
