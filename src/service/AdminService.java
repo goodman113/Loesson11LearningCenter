@@ -1,13 +1,13 @@
 package service;
 
+import entity.Group;
 import entity.User;
 import entity.enums.Role;
 
 import java.util.Objects;
 
-import static db.DataSource.scanner;
-import static db.DataSource.strScanner;
-import static db.Storage.users;
+import static db.DataSource.*;
+
 import static entity.enums.Role.STUDENT;
 import static entity.enums.Role.TEACHER;
 
@@ -34,7 +34,7 @@ public class AdminService {
                     System.out.println("enter password:");
                     user.setPassword(strScanner.nextLine());
                     user.setRole(TEACHER);
-                    users.add(user);
+                    teachers.add(user);
                 }
                 case 3 -> {
                     while (true) {
@@ -49,31 +49,33 @@ public class AdminService {
                             }
 
                             case 1 -> {
+                                techershow();
                                 System.out.println("enter teacher id:");
                                 String id = strScanner.nextLine();
-                                for (User user : users) {
-                                    if ((Objects.equals(id, user.getId())) && (Objects.equals(user.getRole(), TEACHER))) {
+                                for (User teacher : teachers) {
+                                    if (Objects.equals(id, teacher.getId())) {
                                         System.out.println("enter name:");
-                                        user.setFullName(strScanner.nextLine());
+                                        teacher.setFullName(strScanner.nextLine());
                                         System.out.println("enter email:");
-                                        user.setEmail(strScanner.nextLine());
+                                        teacher.setEmail(strScanner.nextLine());
                                         System.out.println("enter password:");
-                                        user.setPassword(strScanner.nextLine());
+                                        teacher.setPassword(strScanner.nextLine());
                                         System.out.println("<<- successful ->>");
                                     }
                                 }
                             }
                             case 2 -> {
+                                studentshow();
                                 System.out.println("enter student id:");
                                 String id = strScanner.nextLine();
-                                for (User user : users) {
-                                    if ((Objects.equals(id, user.getId())) && (Objects.equals(user.getRole(), STUDENT))) {
+                                for (User student : students) {
+                                    if (Objects.equals(id, student.getId())) {
                                         System.out.println("enter name:");
-                                        user.setFullName(strScanner.nextLine());
+                                        student.setFullName(strScanner.nextLine());
                                         System.out.println("enter email:");
-                                        user.setEmail(strScanner.nextLine());
+                                        student.setEmail(strScanner.nextLine());
                                         System.out.println("enter password:");
-                                        user.setPassword(strScanner.nextLine());
+                                        student.setPassword(strScanner.nextLine());
                                         System.out.println("<<- successful ->>");
                                     }
                                 }
@@ -83,8 +85,22 @@ public class AdminService {
 
                     }
                 }
-                case 4 -> {
-
+                case 5 -> {
+                    Group group=new Group();
+                    System.out.println("enter group name:");
+                    group.setName(strScanner.nextLine());
+                    System.out.println("enter maxLessonInMonth:");
+                    group.setMaxLessonInMonth(scanner.nextInt());
+                    techershow();
+                    System.out.println("enter teacher id:");
+                    String id=strScanner.nextLine();
+                    for (User teacher : teachers) {
+                        if(Objects.equals(id,teacher.getId()))
+                        {
+                            group.setTeacher(teacher);
+                        }
+                    }
+                    groups.add(group);
                 }
 
 
@@ -93,6 +109,18 @@ public class AdminService {
 
         }
     }
+
+    private void techershow() {
+        for (User teacher : teachers) {
+                System.out.println("<< "+teacher+" >>");
+        }
+    }
+    private void studentshow() {
+        for (User student : students) {
+                System.out.println("<< "+student+" >>");
+        }
+    }
+
 }
 
 
