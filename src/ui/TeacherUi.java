@@ -19,8 +19,7 @@ public class TeacherUi {
 
 
     public void teacherUi (User user) {
-        currentUser = user;
-    }
+
             while(true){
 
                 // AKBAR 4 show attendance VA 5 mark
