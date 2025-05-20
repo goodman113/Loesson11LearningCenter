@@ -3,7 +3,6 @@ import entity.User;
 import entity.enums.Role;
 import  ui.*;
 import static db.DataSource.*;
-
 public class AuthService {
     public void service(){
         System.out.println("enter email");
