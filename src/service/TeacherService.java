@@ -2,6 +2,8 @@ package service;
 import entity.Group;
 import entity.User;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static db.DataSource.*;
@@ -36,6 +38,13 @@ public class TeacherService {
          }
          return null;
      }
+    public void showGroups(String teacherId){
+        for (Group group : groups) {
+            if (group.getTeacher().getId().equals(teacherId)){
+                System.out.println(group);
+            }
 
+        }
+    }
 
 }
