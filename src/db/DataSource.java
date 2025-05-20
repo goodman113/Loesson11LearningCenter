@@ -14,8 +14,8 @@ public class DataSource {
     public static Scanner scanner  =new Scanner(System.in);
     public static Scanner strScanner  =new Scanner(System.in);
 
-    public static Set<Student> students = new HashSet<>();
-    public static Set<User> users = new HashSet<>();
+   public static Set<Student> students = new HashSet<>();
+    public static Set<User> users= new HashSet<>();
     public static Set<User> teachers = new HashSet<>();
     public static Set<Group> groups = new HashSet<>();
     public static User currentUser = null;
@@ -25,5 +25,10 @@ public class DataSource {
         User teacher2 = new User("teacher2","teacher2","teacher2", Role.TEACHER);
         User a = new User("a","a","a", Role.STUDENT);
         User b = new User("b","b","b", Role.STUDENT);
+        users.add(admin);
+        users.add(teacher1);
+        users.add(teacher2);
+        users.add(a);
+        users.add(b);
     }
 }
