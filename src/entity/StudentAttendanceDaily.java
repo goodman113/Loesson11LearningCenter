@@ -9,8 +9,7 @@ public class StudentAttendanceDaily {
     private String studentName;
     private AttendanceStatus status;
 
-    public StudentAttendanceDaily(String studentId, String studentName, AttendanceStatus status) {
-        this.studentId = studentId;
+    public StudentAttendanceDaily(String studentName, AttendanceStatus status) {
         this.studentName = studentName;
         this.status = status;
     }
@@ -19,9 +18,6 @@ public class StudentAttendanceDaily {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
 
     public String getStudentName() {
         return studentName;

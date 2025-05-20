@@ -1,8 +1,11 @@
 package entity;
 
-public class Student extends User{
+public class Student extends User {
     private StringBuilder marks = new StringBuilder();
     private String groupId;
+
+    public Student() {
+    }
 
     public Student(String groupId) {
         this.groupId = groupId;

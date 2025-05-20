@@ -67,7 +67,6 @@ public class Group {
                 ", name='" + name + '\'' +
                 ", maxLessonInMonth=" + maxLessonInMonth +
                 ", teacher=" + teacher +
-                ", groupStudents=" + groupStudents +
                 '}';
     }
 }
