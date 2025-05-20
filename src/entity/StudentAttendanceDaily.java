@@ -2,8 +2,47 @@ package entity;
 
 import entity.enums.AttendanceStatus;
 
+import java.util.UUID;
+
 public class StudentAttendanceDaily {
-    private String studentId;
+    private final String studentId = UUID.randomUUID().toString();
     private String studentName;
     private AttendanceStatus status;
+
+    public StudentAttendanceDaily() {
+    }
+
+    public StudentAttendanceDaily(String studentName, AttendanceStatus status) {
+        this.studentName = studentName;
+        this.status = status;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public AttendanceStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AttendanceStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentAttendanceDaily{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
