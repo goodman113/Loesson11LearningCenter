@@ -11,6 +11,10 @@ import java.util.Set;
 public class DataSource {
     public static Scanner scanner  =new Scanner(System.in);
     public static Scanner strScanner  =new Scanner(System.in);
+<<<<<<< HEAD
+    public static User  currentUser = null;
+=======
+>>>>>>> 5bc30fe94ea32e970ca92ee6d4e0729719646e58
     Set<User> users = new HashSet<>();
     static {
         User admin = new User("admin","admin","admin", Role.ADMIN);
