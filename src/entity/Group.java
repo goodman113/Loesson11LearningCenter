@@ -8,7 +8,15 @@ public class Group {
     private String name;
     private Integer maxLessonInMonth;
     private User teacher;
+<<<<<<< HEAD
+    private Set<User> students;
+    public Group()
+    {
+
+    }
+=======
     private Set<User> groupStudents;
+>>>>>>> 16fe8f1c2d7e92e877a039c9200be7306bceca2d
 
     public Group(String name, Integer maxLessonInMonth, User teacher, Set<User> students) {
         this.name = name;
