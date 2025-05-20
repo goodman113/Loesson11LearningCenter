@@ -8,13 +8,20 @@ public class Group {
     private String name;
     private Integer maxLessonInMonth;
     private User teacher;
-    private Set<User> groupStudents;
+    private Set<User> students;
+    public Group()
+    {
+
+    }
+
+
+
 
     public Group(String name, Integer maxLessonInMonth, User teacher, Set<User> students) {
         this.name = name;
         this.maxLessonInMonth = maxLessonInMonth;
         this.teacher = teacher;
-        this.groupStudents = students;
+        this.students = students;
     }
 
     public String getId() {
@@ -46,10 +53,21 @@ public class Group {
     }
 
     public Set<User> getGroupStudents() {
-        return groupStudents;
+        return students;
     }
 
     public void setGroupStudents(Set<User> groupStudents) {
-        this.groupStudents = groupStudents;
+        this.students = groupStudents;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", maxLessonInMonth=" + maxLessonInMonth +
+                ", teacher=" + teacher +
+                ", groupStudents=" + students +
+                '}';
     }
 }
