@@ -2,8 +2,6 @@ package ui;
 
 import entity.User;
 
-import static db.DataSource.*;
-
 public class StudentUi {
 
     public void studentUi(User user) {
