@@ -3,6 +3,8 @@ package ui;
 import entity.Attendance;
 import entity.Group;
 import entity.User;
+import service.GroupService;
+import service.StudentService;
 import service.TeacherService;
 
 import java.util.List;
@@ -14,7 +16,6 @@ import static db.DataSource.*;
 
 public class TeacherUi {
     public static User currentUser;
-    static TeacherService teacherService = new TeacherService();
 
 
     public void teacherUi (User user) {
@@ -35,13 +36,42 @@ public class TeacherUi {
                         return;
                     }
                     case "1"->{
-                        teacherService.showGroups(currentUser.getId());
+                        showStudents();
+                        System.out.println("enter student id:");
+                        User student = StudentService.findStudentById(strScanner.nextLine());
+                        if (student==null){
+                            System.out.println("no students are found!");
+                            return;
+                        }
+                        GroupService.showGroups(currentUser.getId());
                         System.out.println("enter group id:");
-                        String groupId = strScanner.nextLine();
-
+                        Group group = GroupService.findGroupById(user, strScanner.nextLine());
+                        if (group==null){
+                            System.out.println("no groups are found");
+                            return;
+                        }
+                        GroupService.addStudentToGroup(student,group);
                     }
                     case "2"->{
-
+                        GroupService.showGroups(currentUser.getId());
+                        System.out.println("enter group id:");
+                        Group group = GroupService.findGroupById(user, strScanner.nextLine());
+                        if (group==null){
+                            System.out.println("no groups are found");
+                            return;
+                        }
+                        GroupService.showGroupStudent(group);
+                        System.out.println("enter student id:");
+                        User student = StudentService.findStudentById(strScanner.nextLine());
+                        if (student==null){
+                            System.out.println("no students are found!");
+                            return;
+                        }
+                        if (GroupService.getGroupStudent(student,group)==null){
+                            System.out.println("this student does not belong to this group");
+                            return;
+                        }
+                        GroupService.deleteStudentFromGroup(student,group);
                     }
                     case "3"->{
                         StudentAttendance();
@@ -77,7 +107,7 @@ public class TeacherUi {
 
     private void showStudents() {
         for(Student student : students){
-            if (student.getGroupId())
+
         }
     }
 
