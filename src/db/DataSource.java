@@ -13,10 +13,7 @@ import java.util.Set;
 public class DataSource {
     public static Scanner scanner  =new Scanner(System.in);
     public static Scanner strScanner  =new Scanner(System.in);
-
-    public static Set<Student> students = new HashSet<>();
     public static Set<User>users = new HashSet<>();
-    public static Set<User> teachers = new HashSet<>();
     public static Set<Group> groups = new HashSet<>();
     static {
         User admin = new User("admin","admin","admin", Role.ADMIN);
