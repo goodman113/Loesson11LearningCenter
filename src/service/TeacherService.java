@@ -1,9 +1,8 @@
 package service;
+import entity.Attendance;
 import entity.Group;
 import entity.Student;
 import entity.User;
-
-import java.time.LocalDate;
 
 import static db.DataSource.*;
 import static service.StudentService.showStudents;
@@ -54,7 +53,7 @@ public static void service(){
                 }
                 GroupService.showGroupStudent(group);
                 System.out.println("enter student id:");
-                User student = StudentService.findStudentById(strScanner.nextLine());
+                Student student = StudentService.findStudentById(strScanner.nextLine());
                 if (student==null){
                     System.out.println("no students are found!");
                     return;
@@ -69,18 +68,53 @@ public static void service(){
 
             }
             case "4"->{
-
+                showAttendances();
             }
             case "5"->{
-
+                MarkStudent();
             }
         }
     }
 }
 
+    private static void MarkStudent() {
+        GroupService.showGroups(currentUser.getId());
+        System.out.println("enter group id:");
+        Group group = GroupService.findGroupById(currentUser, strScanner.nextLine());
+        if (group==null){
+            System.out.println("no groups are found");
+            return;
+        }
+        GroupService.showGroupStudent(group);
+        System.out.println("enter student id:");
+        Student student = StudentService.findStudentById(strScanner.nextLine());
+        if (student==null){
+            System.out.println("no students are found!");
+            return;
+        }
+        if (GroupService.getGroupStudent(student,group)==null){
+            System.out.println("this student does not belong to this group");
+            return;
+        }
+        int mark = checkMark();
+        student.setMarks(currentUser,mark);
+    }
+
+    private static int checkMark() {
+        System.out.println("enter grade:");
+        int mark = scanner.nextInt();
+        if (mark<=0||mark>10)checkMark();
+        return mark;
+    }
+
+    private static void showAttendances() {
+        for (Attendance attendance : attendances) {
+            System.out.println(attendance);
+        }
+    }
 
 
-     public  static User findStudentById(String id){
+    public  static User findStudentById(String id){
          for (Student student : students) {
              if (student.getId().equals(id)){
                  return student;

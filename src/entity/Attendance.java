@@ -62,7 +62,7 @@ public class Attendance {
                 ", date=" + date +
                 ", groupId='" + groupId + '\'' +
                 ", teacher=" + teacher +
-                ", attendedStudents=" + attendedStudents +
+                ", attendedStudents=" + attendedStudents.toString() +
                 '}';
     }
 }
