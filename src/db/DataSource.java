@@ -16,7 +16,7 @@ public class DataSource {
     static {
         User admin = new User("admin","admin","admin", Role.ADMIN);
         User teacher1 = new User("teacher1","teacher1","teacher1", Role.TEACHER);
-        User teacher2 = new User("teacher2","teacher2","teacher2", Role.STUDENT);
+        User teacher2 = new User("teacher2","teacher2","teacher2", Role.TEACHER);
         User a = new User("a","a","a", Role.STUDENT);
         User b = new User("b","b","b", Role.STUDENT);
     }
