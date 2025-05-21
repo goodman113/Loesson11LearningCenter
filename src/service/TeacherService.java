@@ -12,8 +12,6 @@ public class TeacherService {
 public static void service(){
 
     while(true){
-
-        // AKBAR 4 show attendance VA 5 mark
         System.out.println("""
                     0 exit
                     1 add student
@@ -29,7 +27,7 @@ public static void service(){
             case "1"->{
                 showStudents();
                 System.out.println("enter student id:");
-                User student = StudentService.findStudentById(strScanner.nextLine());
+                Student student = StudentService.findStudentById(strScanner.nextLine());
                 if (student==null){
                     System.out.println("no students are found!");
                     return;
@@ -41,7 +39,7 @@ public static void service(){
                     System.out.println("no groups are found");
                     return;
                 }
-                GroupService.addStudentToGroup(student,group);
+                System.out.println(GroupService.addStudentToGroup(student, group)?"student successfully added ":"student could not be added");
             }
             case "2"->{
                 GroupService.showGroups(currentUser.getId());
@@ -62,7 +60,7 @@ public static void service(){
                     System.out.println("this student does not belong to this group");
                     return;
                 }
-                GroupService.deleteStudentFromGroup(student,group);
+                System.out.println(GroupService.deleteStudentFromGroup(student, group)?"successfully deleted ":"could not be deleted");
             }
             case "3"->{
 

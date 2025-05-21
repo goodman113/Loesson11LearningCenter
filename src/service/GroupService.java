@@ -1,19 +1,21 @@
 package service;
 
 import entity.Group;
+import entity.Student;
 import entity.User;
 
 import static db.DataSource.groups;
+import static db.DataSource.students;
 
 public class GroupService {
-    public static boolean addStudentToGroup(User user, Group group){
-        if (user==null||group==null)return false;
-        group.getGroupStudents().add(user);
+    public static boolean addStudentToGroup(Student student, Group group){
+        if (student==null||group==null)return false;
+        group.getGroupStudents().add(student);
         return true;
     }
-    public static boolean deleteStudentFromGroup(User user,Group group){
-        if (user==null||group==null)return false;
-        group.getGroupStudents().remove(user);
+    public static boolean deleteStudentFromGroup(Student student,Group group){
+        if (student==null||group==null)return false;
+        group.getGroupStudents().remove(student);
         return true;
     }
     public static void showGroups(String teacherId){

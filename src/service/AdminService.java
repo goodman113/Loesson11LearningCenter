@@ -26,6 +26,9 @@ public class AdminService {
                     6 edit group
                     """);
             switch (scanner.nextInt()) {
+                case 0 -> {
+                    return;
+                }
                 case 1 -> {
                     User user = new User();
                     System.out.println("enter name:");
@@ -36,6 +39,10 @@ public class AdminService {
                     user.setPassword(strScanner.nextLine());
                     user.setRole(TEACHER);
                     teachers.add(user);
+                    users.add(user);
+                }
+                case 2 -> {
+                    addStudent();
                 }
                 case 3 -> {
                     while (true) {
@@ -103,9 +110,7 @@ public class AdminService {
                     }
                     groups.add(group);
                 }
-                case 2 -> {
-                    addStudent();
-                }
+
                 case 4 -> {
                     while (true){
                         System.out.println("""
@@ -135,16 +140,16 @@ public class AdminService {
     }
 
     private void addStudent() {
-        User user = new User();
+        Student student = new Student();
         System.out.println("Full name: ");
-        user.setFullName(strScanner.nextLine());
+        student.setFullName(strScanner.nextLine());
         System.out.println("Email: ");
-        user.setEmail(strScanner.nextLine());
+        student.setEmail(strScanner.nextLine());
         System.out.println("Password: ");
-        user.setPassword(strScanner.nextLine());
-        user.setRole(STUDENT);
-        students.add((Student) user);
-        users.add(user);
+        student.setPassword(strScanner.nextLine());
+        student.setRole(STUDENT);
+        students.add(student);
+        users.add(student);
     }
 
     private void deleteStudent() {
