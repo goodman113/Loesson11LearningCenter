@@ -5,7 +5,7 @@ import entity.Student;
 import entity.User;
 
 import static db.DataSource.groups;
-import static db.DataSource.students;
+
 
 public class GroupService {
     public static boolean addStudentToGroup(Student student, Group group){
