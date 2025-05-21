@@ -1,18 +1,20 @@
 package entity;
 
 import db.DataSource;
+import entity.enums.Role;
 
 import java.util.Date;
 
 public class Student extends User{
-    private StringBuilder marks = new StringBuilder();
+    private StringBuilder marks;
     private String groupId;
 
     public Student(){}
 
-    public Student(String groupId) {
-        this.groupId = groupId;
+    public Student(String fullName, String email, String password, Role role){
+        super(fullName,email,password,Role.STUDENT);
     }
+
 
     public StringBuilder getMarks() {
         return marks;
@@ -34,6 +36,7 @@ public class Student extends User{
     @Override
     public String toString() {
         return "Student{" +
+                super.toString()+
                 ", marks=" + marks +
                 ", groupId='" + groupId + '\'' +
                 '}';

@@ -8,16 +8,14 @@ public class Group {
     private String name;
     private Integer maxLessonInMonth;
     private User teacher;
-    private Set<User> students;
-    public Group()
-    {
-
+    private Set<Student> students;
+    public Group() {
     }
 
 
 
 
-    public Group(String name, Integer maxLessonInMonth, User teacher, Set<User> students) {
+    public Group(String name, Integer maxLessonInMonth, User teacher,Set<Student> students) {
         this.name = name;
         this.maxLessonInMonth = maxLessonInMonth;
         this.teacher = teacher;
@@ -52,11 +50,11 @@ public class Group {
         this.teacher = teacher;
     }
 
-    public Set<User> getGroupStudents() {
+    public Set<Student> getGroupStudents() {
         return students;
     }
 
-    public void setGroupStudents(Set<User> groupStudents) {
+    public void setGroupStudents(Set<Student> groupStudents) {
         this.students = groupStudents;
     }
 
